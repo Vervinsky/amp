@@ -45,22 +45,60 @@
 
                 <section>
                     <h2>Accelerated Mobile Pages</h2>
-                    <p>
-                        - is an HTML page that is lightweight and stripped down.
-                        The mobile user gets a much-improved experience: content
-                        is faster, more engaging, and easier-to-read.
-                    </p>
+                    <div
+                        style="max-width: 700px; margin: 0 auto; font-size: 24px"
+                    >
+                        <p>
+                            AMP is an open source framework developed by Google
+                            in collaboration with Twitter.
+                        </p>
+                        <p>
+                            Accelerated Mobile Pages create better, faster
+                            experiences on the mobile web. Moreover, the
+                            framework allows you to build lightweight
+                            experiences for mobile by simplifying the HTML and
+                            following streamlined CSS rules.
+                        </p>
+                    </div>
+                </section>
+
+                <section>
+                    <h6>How AMP looks like on Google’s SERP</h6>
+                    <div
+                        style="display: flex; justify-content: space-between; padding: 30px"
+                    >
+                        <div>
+                            <img
+                                src="./img/amp-v-1.jpg"
+                                width="430"
+                                height="500"
+                                alt=""
+                                style="margin-right: 40px;width: 100%; height: auto"
+                            />
+                        </div>
+                        <div>
+                            <img
+                                src="./img/amp-v-2.png"
+                                width="500"
+                                height="300"
+                                alt=""
+                                style="width: 100%; height: auto"
+                            />
+                        </div>
+                    </div>
                 </section>
 
                 <section>
                     <section><h2>How does AMP work?</h2></section>
                     <section>
                         <b>Under the hood, AMP framework has 3 main parts.</b>
-                        <ul>
-                            <li class="fragment"><strong>AMP HTML</strong></li>
-                            <li class="fragment"><strong>AMP JS</strong></li>
-                            <li class="fragment"><strong>AMP Cache</strong></li>
-                        </ul>
+                        <div>
+                            <img
+                                src="./img/amp-core.png"
+                                alt=""
+                                style="width: 100%; height: auto"
+                            />
+                        </div>
                         <aside class="notes">
                             <ul>
                                 <li>
@@ -79,12 +117,36 @@
                             </ul>
                         </aside>
                     </section>
+                    <section>
+                        <img
+                            src="./img/how-amp-work-1.png"
+                            alt=""
+                            style="width: 100%; height: auto"
+                        />
+                    </section>
+                    <section>
+                        <p>User flow</p>
+                        <img
+                            src="./img/how-amp-work.png"
+                            width="600"
+                            height="440"
+                            alt=""
+                        />
+                    </section>
                 </section>
 
                 <section>
                     <h2>Benefits of AMP</h2>
-
-                    <ul>
+                    <ul style="font-size: 28px">
+                        <li class="fragment">
+                            Faster loading page for mobile users
+                        </li>
+                        <li class="fragment">Improved search engine ranking</li>
+                        <li class="fragment">
+                            Increased visibility for Publishers
+                        </li>
+                    </ul>
+                    <!-- <ul>
                         <li class="fragment">
                             <strong>Smart content prioritization</strong>
                             <ul style="font-size: 28px">
@@ -111,157 +173,128 @@
                                 <li>Max 50kB inline stylesheet</li>
                             </ul>
                         </li>
+                    </ul> -->
+                </section>
+
+                <section>
+                    <h2>Disadvantages of AMP</h2>
+
+                    <ul
+                        style="font-size: 28px; max-width: 500px; margin: 0 auto"
+                    >
+                        <li class="fragment">JavaScript & CSS Limitations</li>
+                        <li class="fragment">Tracking Problems</li>
+                        <li class="fragment">
+                            You must use a stripped down, simpler version of
+                            your site and lose core elements
+                        </li>
+                        <li class="fragment">
+                            Implementation is not straightforward
+                        </li>
                     </ul>
                 </section>
 
                 <section>
+                    <section><h2>The rules</h2></section>
+
                     <section>
-                        <h2>Global restrictions</h2>
-                        <ul>
-                            <li class="fragment">
-                                <strong
-                                    >HTML with some restrictions for reliable
-                                    performance</strong
-                                >
-                            </li>
-                            <li class="fragment">
-                                <strong>no custom JS</strong>
-                            </li>
-                            <li class="fragment">
-                                <strong>no inline CSS</strong>
-                            </li>
-                            <li class="fragment">
-                                <strong>50KB CSS limit</strong>
-                            </li>
-                        </ul>
+                        <p>1. Boilerplate</p>
+                        <img src="./img/boilerplate.png" alt="" />
                         <aside class="notes">
-                            При этом Shema.org в json формате разрешен и его
-                            можно применять
+                            <ul style="font-size:24px">
+                                <li>
+                                    contain a top-level
+                                    <code style="color: burlywood"
+                                        >&lt;html ⚡&gt;</code
+                                    >
+                                    tag (<code style="color: burlywood"
+                                        >&lt;html amp&gt;</code
+                                    >
+                                    is accepted as well).
+                                </li>
+                                <li>
+                                    contain a
+                                    <code style="color: burlywood"
+                                        >&lt;link rel="canonical"
+                                        href="$SOME_URL"&gt;</code
+                                    >
+                                    tag inside their head that points to the
+                                    regular HTML version of the AMP HTML
+                                    document or to itself if no such HTML
+                                    version exists.
+                                </li>
+                                <li>
+                                    contain a
+                                    <code style="color: burlywood"
+                                        >&lt;meta charset="utf-8"&gt;</code
+                                    >
+                                    tag as the first child of their head tag.
+                                </li>
+                                <li>
+                                    contain a
+                                    <code style="color: burlywood"
+                                        >&lt;meta name="viewport"
+                                        content="width=device-width"&gt;</code
+                                    >
+                                    tag inside their head tag. It's also
+                                    recommended to include
+                                    <code style="color: burlywood"
+                                        >minimum-scale=1</code
+                                    >
+                                    and
+                                    <code style="color: burlywood"
+                                        >initial-scale=1</code
+                                    >.
+                                </li>
+                                <li>
+                                    contain a
+                                    <code style="color: burlywood"
+                                        >&lt;script async
+                                        src="https://cdn.ampproject.org/v0.js"&gt;&lt;/script&gt;</code
+                                    >
+                                    tag inside their head tag.
+                                </li>
+                                <li>
+                                    contain the
+                                    <a
+                                        href="https://github.com/ampproject/amphtml/blob/master/spec/amp-boilerplate.md"
+                                        >AMP boilerplate code</a
+                                    >
+                                    (<code style="color: burlywood"
+                                        >head &gt; style[amp-boilerplate]</code
+                                    >
+                                    and
+                                    <code style="color: burlywood"
+                                        >noscript &gt;
+                                        style[amp-boilerplate]</code
+                                    >) in their head tag.
+                                </li>
+                            </ul>
                         </aside>
                     </section>
-                </section>
-                <section>
-                    <h2>CSS regulations</h2>
-                    <ol>
-                        <li>
-                            Inline Style Attributes: Styles must be indicated in
-                            the header of the page&nbsp;using a custom AMP tag.
-                        </li>
-                        <li>
-                            !important: It is&nbsp;important that Google AMP be
-                            able to enforce its sizing regulations on a webpage,
-                            and&nbsp;therefore usage of this is not allowed.
-                        </li>
-                        <li>
-                            &lt;link rel=“stylesheet”&gt;: This is against
-                            policy with the exception of using custom fonts.
-                        </li>
-                        <li>
-                            * (universal selector): The universal selector is
-                            banned as it&nbsp;can evade other selector
-                            restrictions.
-                        </li>
-                        <li>
-                            :not(): This can be&nbsp;used to imitate selectors.
-                        </li>
-                        <li>
-                            Pseudo-Selectors: These will have
-                            certain&nbsp;restrictions in Google AMP. Tag names
-                            must not start with amp-.
-                        </li>
-                        <li>
-                            -amp- and -i-amp- tag names: These tags&nbsp;are
-                            reserved for internal use only.
-                        </li>
-                        <li>
-                            behavior, -moz- binding: This is not supported by
-                            Google AMP.
-                        </li>
-                    </ol>
-                </section>
-
-                <section>
                     <section>
-                        <h3>AMP HTML documents MUST</h3>
-
-                        <ul style="font-size:24px">
-                            <li>
-                                contain a top-level
-                                <code style="color: burlywood"
-                                    >&lt;html ⚡&gt;</code
-                                >
-                                tag (<code style="color: burlywood"
-                                    >&lt;html amp&gt;</code
-                                >
-                                is accepted as well).
-                            </li>
-                            <li>
-                                contain a
-                                <code style="color: burlywood"
-                                    >&lt;link rel="canonical"
-                                    href="$SOME_URL"&gt;</code
-                                >
-                                tag inside their head that points to the regular
-                                HTML version of the AMP HTML document or to
-                                itself if no such HTML version exists.
-                            </li>
-                            <li>
-                                contain a
-                                <code style="color: burlywood"
-                                    >&lt;meta charset="utf-8"&gt;</code
-                                >
-                                tag as the first child of their head tag.
-                            </li>
-                            <li>
-                                contain a
-                                <code style="color: burlywood"
-                                    >&lt;meta name="viewport"
-                                    content="width=device-width"&gt;</code
-                                >
-                                tag inside their head tag. It's also recommended
-                                to include
-                                <code style="color: burlywood"
-                                    >minimum-scale=1</code
-                                >
-                                and
-                                <code style="color: burlywood"
-                                    >initial-scale=1</code
-                                >.
-                            </li>
-                            <li>
-                                contain a
-                                <code style="color: burlywood"
-                                    >&lt;script async
-                                    src="https://cdn.ampproject.org/v0.js"&gt;&lt;/script&gt;</code
-                                >
-                                tag inside their head tag.
-                            </li>
-                            <li>
-                                contain the
-                                <a
-                                    href="https://github.com/ampproject/amphtml/blob/master/spec/amp-boilerplate.md"
-                                    >AMP boilerplate code</a
-                                >
-                                (<code style="color: burlywood"
-                                    >head &gt; style[amp-boilerplate]</code
-                                >
-                                and
-                                <code style="color: burlywood"
-                                    >noscript &gt; style[amp-boilerplate]</code
-                                >) in their head tag.
-                            </li>
-                        </ul>
+                        <p>2. HTML</p>
+                        <img src="./img/html.png" alt="" />
+                    </section>
+                    <section>
+                        <p>3. CSS</p>
+                        <img src="./img/css.png" alt="" />
+                        <aside class="notes">
+                            <ul>
+                                <li><strong>no inline CSS</strong></li>
+                                <li><strong>50KB CSS limit</strong></li>
+                            </ul>
+                        </aside>
+                    </section>
+                    <section>
+                        <p>4. JS</p>
+                        The script tag can only be used to store data (state)
                     </section>
                 </section>
 
                 <section>
-                    <h3>Components</h3>
+                    <h6>AMP components library</h6>
                     <img src="./img/components.png" alt="" />
-                </section>
-
-                <section>
-                    <h2>HTML markup</h2>
-                    <img src="./img/amp-html.png" alt="" />
                 </section>
 
                 <section>
@@ -314,430 +347,11 @@
                 </section>
                 <section>
                     <section><h3>Royal Canin Website AMP'ing</h3></section>
-                    <section><img src="./img/amp-image.png" alt="" /></section>
+                    <section>
+                        <p>Example of HTML for Inline Image component</p>
+                        <img src="./img/amp-image.png" alt="" />
+                    </section>
                     <section><img src="./img/amp-layout.png" alt="" /></section>
-                </section>
-		<section>
-                    <h2>Advanced example</h2>
-                    <a href="/advanced/index.html">Demo</a>
-                </section>
-
-                <section data-markdown>
-                    <script type="text/template">
-                        ## Markdown support
-
-                        Write content using inline or external Markdown.
-                        Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-
-                        ```
-                        <section data-markdown>
-                          ## Markdown support
-
-                          Write content using inline or external Markdown.
-                          Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-                        </section>
-                        ```
-                    </script>
-                </section>
-
-                <section>
-                    <section>
-                        <h2>Fragments</h2>
-                        <p>Hit the next arrow...</p>
-                        <p class="fragment">... to step through ...</p>
-                        <p>
-                            <span class="fragment">... a</span>
-                            <span class="fragment">fragmented</span>
-                            <span class="fragment">slide.</span>
-                        </p>
-
-                        <aside class="notes">
-                            This slide has fragments which are also stepped
-                            through in the notes window.
-                        </aside>
-                    </section>
-                    <section>
-                        <h2>Fragment Styles</h2>
-                        <p>There's different types of fragments, like:</p>
-                        <p class="fragment grow">grow</p>
-                        <p class="fragment shrink">shrink</p>
-                        <p class="fragment fade-out">fade-out</p>
-                        <p>
-                            <span
-                                style="display: inline-block;"
-                                class="fragment fade-right"
-                                >fade-right,
-                            </span>
-                            <span
-                                style="display: inline-block;"
-                                class="fragment fade-up"
-                                >up,
-                            </span>
-                            <span
-                                style="display: inline-block;"
-                                class="fragment fade-down"
-                                >down,
-                            </span>
-                            <span
-                                style="display: inline-block;"
-                                class="fragment fade-left"
-                                >left</span
-                            >
-                        </p>
-                        <p class="fragment fade-in-then-out">
-                            fade-in-then-out
-                        </p>
-                        <p class="fragment fade-in-then-semi-out">
-                            fade-in-then-semi-out
-                        </p>
-                        <p>
-                            Highlight
-                            <span class="fragment highlight-red">red</span>
-                            <span class="fragment highlight-blue">blue</span>
-                            <span class="fragment highlight-green">green</span>
-                        </p>
-                    </section>
-                </section>
-
-                <section id="transitions">
-                    <h2>Transition Styles</h2>
-                    <p>
-                        You can select from different transitions, like: <br />
-                        <a href="?transition=none#/transitions">None</a> -
-                        <a href="?transition=fade#/transitions">Fade</a> -
-                        <a href="?transition=slide#/transitions">Slide</a> -
-                        <a href="?transition=convex#/transitions">Convex</a> -
-                        <a href="?transition=concave#/transitions">Concave</a> -
-                        <a href="?transition=zoom#/transitions">Zoom</a>
-                    </p>
-                </section>
-
-                <section id="themes">
-                    <h2>Themes</h2>
-                    <p>
-                        reveal.js comes with a few themes built in: <br />
-                        <!--
-                            Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck.
-                        -->
-                        <a
-                            href="#"
-                            onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;"
-                            >Black (default)</a
-                        >
-                        -
-                        <a
-                            href="#"
-                            onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;"
-                            >White</a
-                        >
-                        -
-                        <a
-                            href="#"
-                            onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;"
-                            >League</a
-                        >
-                        -
-                        <a
-                            href="#"
-                            onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;"
-                            >Sky</a
-                        >
-                        -
-                        <a
-                            href="#"
-                            onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;"
-                            >Beige</a
-                        >
-                        -
-                        <a
-                            href="#"
-                            onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;"
-                            >Simple</a
-                        >
-                        <br />
-                        <a
-                            href="#"
-                            onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;"
-                            >Serif</a
-                        >
-                        -
-                        <a
-                            href="#"
-                            onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;"
-                            >Blood</a
-                        >
-                        -
-                        <a
-                            href="#"
-                            onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;"
-                            >Night</a
-                        >
-                        -
-                        <a
-                            href="#"
-                            onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;"
-                            >Moon</a
-                        >
-                        -
-                        <a
-                            href="#"
-                            onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;"
-                            >Solarized</a
-                        >
-                    </p>
-                </section>
-
-                <section>
-                    <section data-background="#dddddd">
-                        <h2>Slide Backgrounds</h2>
-                        <p>
-                            Set <code>data-background="#dddddd"</code> on a
-                            slide to change the background color. All CSS color
-                            formats are supported.
-                        </p>
-                        <a href="#" class="navigate-down">
-                            <img
-                                width="178"
-                                height="238"
-                                data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png"
-                                alt="Down arrow"
-                            />
-                        </a>
-                    </section>
-                    <section
-                        data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png"
-                    >
-                        <h2>Image Backgrounds</h2>
-                        <pre><code class="hljs">&lt;section data-background="image.png"&gt;</code></pre>
-                    </section>
-                    <section
-                        data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png"
-                        data-background-repeat="repeat"
-                        data-background-size="100px"
-                    >
-                        <h2>Tiled Backgrounds</h2>
-                        <pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
-                    </section>
-                    <section
-                        data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm"
-                        data-background-color="#000000"
-                    >
-                        <div
-                            style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;"
-                        >
-                            <h2>Video Backgrounds</h2>
-                            <pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
-                        </div>
-                    </section>
-                    <section
-                        data-background="http://i.giphy.com/90F8aUepslB84.gif"
-                    >
-                        <h2>... and GIFs!</h2>
-                    </section>
-                </section>
-
-                <section
-                    data-transition="slide"
-                    data-background="#4d7e65"
-                    data-background-transition="zoom"
-                >
-                    <h2>Background Transitions</h2>
-                    <p>
-                        Different background transitions are available via the
-                        backgroundTransition option. This one's called "zoom".
-                    </p>
-                    <pre><code class="hljs">Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
-                </section>
-
-                <section
-                    data-transition="slide"
-                    data-background="#b5533c"
-                    data-background-transition="zoom"
-                >
-                    <h2>Background Transitions</h2>
-                    <p>You can override background transitions per-slide.</p>
-                    <pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
-                </section>
-
-                <section>
-                    <h2>Pretty Code</h2>
-                    <pre><code class="hljs" data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
-  }
-}
-					</code></pre>
-                    <p>
-                        Code syntax highlighting courtesy of
-                        <a
-                            href="http://softwaremaniacs.org/soft/highlight/en/description/"
-                            >highlight.js</a
-                        >.
-                    </p>
-                </section>
-
-                <section>
-                    <h2>Marvelous List</h2>
-                    <ul>
-                        <li>No order here</li>
-                        <li>Or here</li>
-                        <li>Or here</li>
-                        <li>Or here</li>
-                    </ul>
-                </section>
-
-                <section>
-                    <h2>Fantastic Ordered List</h2>
-                    <ol>
-                        <li>One is smaller than...</li>
-                        <li>Two is smaller than...</li>
-                        <li>Three!</li>
-                    </ol>
-                </section>
-
-                <section>
-                    <h2>Tabular Tables</h2>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Item</th>
-                                <th>Value</th>
-                                <th>Quantity</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Apples</td>
-                                <td>$1</td>
-                                <td>7</td>
-                            </tr>
-                            <tr>
-                                <td>Lemonade</td>
-                                <td>$2</td>
-                                <td>18</td>
-                            </tr>
-                            <tr>
-                                <td>Bread</td>
-                                <td>$3</td>
-                                <td>2</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </section>
-
-                <section>
-                    <h2>Clever Quotes</h2>
-                    <p>
-                        These guys come in two forms, inline:
-                        <q
-                            cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations"
-                            >The nice thing about standards is that there are so
-                            many to choose from</q
-                        >
-                        and block:
-                    </p>
-                    <blockquote
-                        cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations"
-                    >
-                        &ldquo;For years there has been a theory that millions
-                        of monkeys typing at random on millions of typewriters
-                        would reproduce the entire works of Shakespeare. The
-                        Internet has proven this theory to be untrue.&rdquo;
-                    </blockquote>
-                </section>
-
-                <section>
-                    <h2>Intergalactic Interconnections</h2>
-                    <p>
-                        You can link between slides internally,
-                        <a href="#/2/3">like this</a>.
-                    </p>
-                </section>
-
-                <section>
-                    <h2>Speaker View</h2>
-                    <p>
-                        There's a
-                        <a
-                            href="https://github.com/hakimel/reveal.js#speaker-notes"
-                            >speaker view</a
-                        >. It includes a timer, preview of the upcoming slide as
-                        well as your speaker notes.
-                    </p>
-                    <p>Press the <em>S</em> key to try it out.</p>
-
-                    <aside class="notes">
-                        Oh hey, these are some notes. They'll be hidden in your
-                        presentation, but you can see them if you open the
-                        speaker notes window (hit 's' on your keyboard).
-                    </aside>
-                </section>
-
-                <section>
-                    <h2>Export to PDF</h2>
-                    <p>
-                        Presentations can be
-                        <a
-                            href="https://github.com/hakimel/reveal.js#pdf-export"
-                            >exported to PDF</a
-                        >, here's an example:
-                    </p>
-                    <iframe
-                        data-src="https://www.slideshare.net/slideshow/embed_code/42840540"
-                        width="445"
-                        height="355"
-                        frameborder="0"
-                        marginwidth="0"
-                        marginheight="0"
-                        scrolling="no"
-                        style="border:3px solid #666; margin-bottom:5px; max-width: 100%;"
-                        allowfullscreen
-                    >
-                    </iframe>
-                </section>
-
-                <section>
-                    <h2>Global State</h2>
-                    <p>
-                        Set <code>data-state="something"</code> on a slide and
-                        <code>"something"</code> will be added as a class to the
-                        document element when the slide is open. This lets you
-                        apply broader style changes, like switching the page
-                        background.
-                    </p>
-                </section>
-
-                <section data-state="customevent">
-                    <h2>State Events</h2>
-                    <p>
-                        Additionally custom events can be triggered on a per
-                        slide basis by binding to the
-                        <code>data-state</code> name.
-                    </p>
-                    <pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
-Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-                </section>
-
-                <section>
-                    <h2>Take a Moment</h2>
-                    <p>
-                        Press B or . on your keyboard to pause the presentation.
-                        This is helpful when you're on stage and want to take
-                        distracting slides off the screen.
-                    </p>
                 </section>
 
                 <section>
