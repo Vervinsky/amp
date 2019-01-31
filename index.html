@@ -53,11 +53,8 @@
                             in collaboration with Twitter.
                         </p>
                         <p>
-                            Accelerated Mobile Pages create better, faster
-                            experiences on the mobile web. Moreover, the
-                            framework allows you to build lightweight
-                            experiences for mobile by simplifying the HTML and
-                            following streamlined CSS rules.
+                            AMP create better, faster experiences on the mobile
+                            web.
                         </p>
                     </div>
                 </section>
@@ -86,6 +83,15 @@
                             />
                         </div>
                     </div>
+                </section>
+
+                <section>
+                    <h6>AMP Timeline</h6>
+                    <img src="./img/timeline.png" />
+                </section>
+                <section>
+                    <h6>Impact of AMP project till now</h6>
+                    <img src="./img/facts.png" />
                 </section>
 
                 <section>
@@ -146,42 +152,17 @@
                             Increased visibility for Publishers
                         </li>
                     </ul>
-                    <!-- <ul>
-                        <li class="fragment">
-                            <strong>Smart content prioritization</strong>
-                            <ul style="font-size: 28px">
-                                <li>Prefetching the elements</li>
-                                <li>No relayout</li>
-                                <li>Asynchronous load</li>
-                            </ul>
-                        </li>
-                        <li class="fragment">
-                            <strong>Responsive design</strong>
-                            <ul style="font-size: 28px">
-                                <li>
-                                    Always get the best image for your screen
-                                    (full srcset support)
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="fragment">
-                            <strong>Limited by design</strong>
-                            <ul style="font-size: 28px">
-                                <li>
-                                    No custom Javascript except in amp-iframe
-                                </li>
-                                <li>Max 50kB inline stylesheet</li>
-                            </ul>
-                        </li>
-                    </ul> -->
+                    <aside class="notes">
+                        Lazy loading Using preconnect Prefetching resources
+                        Async Javascript Inline style sheets No downloadable
+                        fonts Resource prioritization
+                    </aside>
                 </section>
 
                 <section>
                     <h2>Disadvantages of AMP</h2>
-
-                    <ul
-                        style="font-size: 28px; max-width: 500px; margin: 0 auto"
-                    >
+                
+                    <ul style="font-size: 28px; max-width: 500px; margin: 0 auto">
                         <li class="fragment">JavaScript & CSS Limitations</li>
                         <li class="fragment">Tracking Problems</li>
                         <li class="fragment">
@@ -340,18 +321,131 @@
                         <p>Validate AMP using Google Search console</p>
                         <a
                             target="_blank"
-                            href="https://search.google.com/test/amp?id=UZChA_Kuo_xgOGqrApmtIg"
+                            href="https://search.google.com/test/amp?view=search-preview&id=EgVcr5i5MjoHOeNp5J1vCw"
                             >Demo</a
                         >
                     </section>
                 </section>
                 <section>
-                    <section><h3>Royal Canin Website AMP'ing</h3></section>
+                    <h2>AMP examples</h2>
+                    <a href="https://codepen.io/aghassemi/pen/OpXKzo" target="_blank">Beautiful AMP</a>
+                    <a href="/amp/advanced" target="_blank">Advanced Interactivity in AMP</a>
+                </section>
+               
+                <section>
                     <section>
-                        <p>Example of HTML for Inline Image component</p>
+                        <h3>
+                            Royal Canin
+                            <span style="display: block">Website AMP'ing</span>
+                        </h3>
+                    </section>
+                    <section>
+                        <h2>PART 1 - EASY</h2>
+                    </section>
+                    <section>
+                        <p>
+                            1. Add a field
+                            <span style="color:burlywood"
+                                >"Has AMP layout"</span>
+                           <div>
+                                - not all templates have AMP layout
+                           </div>
+                        </p>
+                        <img src="./img/amp-layout.png" alt="" />
+                    </section>
+                    <section>
+                        <p>
+                            2. Add a special layout - <span style="color: burlywood">.cshtml</span> + <span style="color: burlywood">Sitecore</span> item
+                        </p>
+                        <img src="./img/layout.png" alt="" />
+                    </section>
+
+                    <section>
+                        <p>
+                            3. Add meta link on pages only in the classic mode - <span style="color: burlywood">!this.HttpContext.IsAmpRequest()</span> 
+                            <div>(only with an amp version on RC)</div>
+                            <pre>
+                                <code class="javascript hljs">
+<link rel="amphtml" href="https://www.royalcanin.com/us/cats/products/retail-products/maine-coon-dry-cat-food/amp/">
+                                </code>
+
+                            </pre>
+                           
+                        </p>
+                      
+                    </section>
+                    <section>
+                        <p>
+                            4. Add one more parameter for rendering cache - <div style="color: burlywood">"Vary By AMP"</div>
+                        </p>
+                        <img src="./img/varyby.png" alt="" />
+                    </section>
+                    <section>
+                        <p>
+                            5. Add help methods:
+                        </p>
+                        <img src="./img/helpers.png" alt="" />
+                    </section>
+                    <section>
+                        <p>Inline Image component</p>
                         <img src="./img/amp-image.png" alt="" />
                     </section>
-                    <section><img src="./img/amp-layout.png" alt="" /></section>
+                    <section>
+                        <h2>PART 2 - <div>The affected Sitecore pipelines</div></h2>
+                    </section>
+                    <section>
+                        <p>httpRequestBegin</p>
+                        <ol type="a" style="list-style-type: lower-alpha;">
+                            <li>
+                           add custom item resolver <div>(after the standard ItemResolver)</div>
+                           
+</li>
+                            <li>set the flag to the context
+                                 <div>
+                                (call the help method - <span style="color: burlywood">args.HttpContext.SetAmpRequestFlag()</span>)
+                            </div>
+                        </li>
+                        </ol>
+                    </section>
+                    <section>
+                        <p>mvc.buildPageDefinition</p>
+                        <p style="font-size: 22px">
+                            replace the standard <span style="color: burlywood">"ProcessXmlBasedLayoutDefinition"</span>  processor 
+                            <div style="font-size: 22px"> 
+                                if this is an amp request and replace the base layout with the amp
+                            </div>
+                          
+                        </p>
+                        <img src="./img/mvc-1.png" alt="" />
+                    </section>
+                    <section>
+                        <p>mvc.renderRendering</p>
+                        <p style="font-size: 22px">
+                            apply <span style="color: burlywood">"Vary by AMP"</span> cache setting
+                        </p>
+                        <img src="./img/mvc-2.png" alt="" />
+                    </section>
+                    <section>
+                        <p>renderField</p>
+                        <p style="font-size: 22px">
+                            replace the standard <span style="color: burlywood"> "GetFieldValue"</span> 
+                            
+                                to process images in RTE fields - 
+                                <div style="font-size: 22px">replace standard <span style="color: burlywood">img</span> tags with <span style="color: burlywood">amp-img</span></div>
+                           
+                        </p>
+                    </section>
+                </section>
+
+                <section>
+                    <h2 style="text-transform: initial; line-height: 0.8">Google Page Speed <p>of AMP page</p></h2>
+                   <a href="https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fwww.royalcanin.com%2Fus%2Fdogs%2Fhealth-and-wellbeing%2Fbladder-problems-in-dogs%2Famp%2F&tab=mobile">Demo</a>
+                </section>
+
+                <section>
+                    <h2 style="text-transform: initial; line-height: 0.8">Google SERP</p>
+                    </h2>
+                    <a href="https://www.google.com/search?q=how+should+icare+for+my+ageing+dog+roya+canin&oq=how+should+icare+for+my+ageing+dog+roya+canin&aqs=chrome..69i57.19224j0j4&sourceid=chrome&ie=UTF-8">Demo</a>
                 </section>
 
                 <section>
